@@ -57,10 +57,13 @@ public class Main {
 
     private static void readFile() throws FileNotFoundException {
         File file = new File ("rooms.txt");
+        if (!file.exists()) {
+            System.out.println("File doesn't exist. Write to file to create new file.");
+        }
         Scanner fileScanner = new Scanner(file);
         while (fileScanner.hasNext()) {
-            String line = scanner.nextLine();
-            System.out.println(line);
+            String line = fileScanner.nextLine();
+            System.out.println("Room with area: " + line);
         }
     }
 }
